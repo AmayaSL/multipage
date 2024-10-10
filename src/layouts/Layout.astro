@@ -3,7 +3,7 @@ interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
+const { title = "No name" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,34 +17,41 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		
+		<header class="bg-orange-400 h-20">
+
+		</header>
+
+		<menu class="flex bg-slate-400">
+			<li><a href="/" class="hover:bg-white/30 px-4 block" >Inicio</a></li>
+			<li><a href="/quienes-somos" class="hover:bg-white/30 px-4 block" >Quienes somos</a></li>
+			<li class="h-full relative group">
+				<a href="" class="hover:bg-white/30 px-4 block">Organigrama</a>
+				<div class="absolute group-hover:block hidden bg-slate-600 w-60">
+					<a href="/organigrama" class="hover:bg-slate-800 block py-3 px-4 text-lg text-white">
+						Pagina principal
+					</a>
+					<a href="/organigrama/biografia" class="hover:bg-slate-800 block py-3 px-4 text-lg text-white">
+						Biografia
+					</a>
+				</div>
+				<li class="h-full relative group">
+					<a href="" class="hover:bg-white/30 px-4 block">Noticias</a>
+					<div class="absolute group-hover:block hidden bg-slate-600 w-60">
+						<a href="/noticias/clifford" class="hover:bg-slate-800 block py-3 px-4 text-lg text-white">
+							clifford
+						</a>
+						<a href="/noticias/rover" class="hover:bg-slate-800 block py-3 px-4 text-lg text-white">
+							rover
+						</a>
+						<a href="/noticias/spot" class="hover:bg-slate-800 block py-3 px-4 text-lg text-white">
+							spot
+												
+						</a>
+					</div>
+			</li>
+			<li><a href="/contacto" class="hover:bg-white/30 px-4 block" >Contacto</a></li>
+		</menu>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
